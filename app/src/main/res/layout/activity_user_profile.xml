@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfile">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/buttonColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@color/material_on_background_disabled" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="28dp"
+        android:text="Nome:"
+        android:textColor="@color/ColorStandard"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="22dp"
+        android:text="Cidade:"
+        android:textColor="@color/ColorStandard"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Slogan:"
+        android:textColor="@color/ColorStandard"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginLeft="164dp"
+        android:layout_marginTop="68dp"
+        android:text="Publicações"
+        android:textColor="@color/ColorStandard"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/btnAlterDate"
+        android:layout_width="134dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="136dp"
+        android:onClick="alterarDados"
+        android:text="Alterar Dados"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSair"
+        android:layout_width="134dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="136dp"
+        android:onClick="sair"
+        android:text="Sair"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/btnAlterDate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="408dp"
+        android:layout_height="509dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView33"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
+                android:layout_marginLeft="55dp"
+                android:background="@color/buttonColor"
+                tools:layout_editor_absoluteX="37dp"
+                tools:layout_editor_absoluteY="29dp"
+                tools:srcCompat="@color/material_on_background_disabled"/>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:text="Legenda"
+                android:textColor="@color/ColorStandard"
+                tools:layout_editor_absoluteX="293dp"
+                tools:layout_editor_absoluteY="59dp"/>
+
+            <ImageView
+                android:id="@+id/cutir"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="150dp"
+                app:srcCompat="@mipmap/heart"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="44dp"/>
+
+            <ImageView
+                android:id="@+id/bom"
+                android:layout_width="20dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                app:srcCompat="@mipmap/feliz"
+                tools:layout_editor_absoluteX="276dp"
+                tools:layout_editor_absoluteY="44dp"/>
+
+            <ImageView
+                android:id="@+id/naoGostei"
+                android:layout_width="20dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="-20dp"
+                app:srcCompat="@mipmap/angry"
+                tools:layout_editor_absoluteX="316dp"
+                tools:layout_editor_absoluteY="47dp"/>
+
+            <TextView
+                android:id="@+id/numberCurtir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="155.5dp"
+                android:layout_marginTop="1dp"
+                android:text="0"
+                android:textColor="@color/ColorStandard"
+                tools:layout_editor_absoluteX="293dp"
+                tools:layout_editor_absoluteY="59dp"/>
+
+            <TextView
+                android:id="@+id/numberBom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="205.5dp"
+                android:layout_marginTop="-18dp"
+                android:text="0"
+                android:textColor="@color/ColorStandard"
+                tools:layout_editor_absoluteX="293dp"
+                tools:layout_editor_absoluteY="59dp"/>
+
+            <TextView
+                android:id="@+id/numberNaoGostei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="255.5dp"
+                android:layout_marginTop="-19dp"
+                android:text="0"
+                android:textColor="@color/ColorStandard"
+                tools:layout_editor_absoluteX="293dp"
+                tools:layout_editor_absoluteY="59dp"/>
+
+            <Button
+                android:id="@+id/btnExcluirFoto"
+                android:layout_width="70dp"
+                android:layout_height="33dp"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="-47.5dp"
+                android:onClick="excluirFoto"
+                android:text="Excluir"
+                android:textSize="8sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

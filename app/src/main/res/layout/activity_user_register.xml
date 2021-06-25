@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserRegister">
+
+    <ImageView
+        android:id="@+id/imgFotoPerfil"
+        android:layout_width="107dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/buttonColor" />
+
+    <Button
+        android:id="@+id/btnTirarFoto"
+        android:layout_width="143dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="32dp"
+        android:onClick="tirarFoto"
+        android:text="Tirar Foto"
+        app:backgroundTint="#DE98EC"
+        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCarregarFoto"
+        android:layout_width="143dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="39dp"
+        android:onClick="carregarFoto"
+        android:text="Carregar"
+        app:backgroundTint="#DE98EC"
+        app:layout_constraintStart_toEndOf="@+id/imgFotoPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/btnTirarFoto" />
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Seu Nome"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgFotoPerfil" />
+
+    <EditText
+        android:id="@+id/edtIdade"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Sua Idade"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+
+    <EditText
+        android:id="@+id/edtTelefone"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Seu Telefone"
+        android:inputType="phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtIdade" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Seu Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
+
+    <EditText
+        android:id="@+id/edtSenha"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Sua Senha"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
+    <EditText
+        android:id="@+id/edtCidade"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Sua Cidade"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSenha" />
+
+    <EditText
+        android:id="@+id/edtSlogan"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Seu Slogan"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtCidade" />
+
+    <Button
+        android:id="@+id/edtRegistrar"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="15dp"
+        android:onClick="registrar"
+        android:text="Registrar"
+        app:backgroundTint="#DE98EC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSlogan" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

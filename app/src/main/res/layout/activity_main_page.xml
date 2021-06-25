@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainPage">
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="417dp"
+        android:layout_height="684dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="29dp"
+                android:background="@color/buttonColor" />
+
+            <TextView
+                android:id="@+id/txtMainNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="-90dp"
+                android:text="Nome:"
+                android:textColor="@color/ColorStandard"/>
+
+            <TextView
+                android:id="@+id/txtMainCidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="10dp"
+                android:text="Cidade:"
+                android:textColor="@color/ColorStandard"/>
+
+            <TextView
+                android:id="@+id/txtMainSlogan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="10dp"
+                android:text="Slogan:"
+                android:textColor="@color/ColorStandard"/>
+
+            <ImageView
+                android:id="@+id/imgMain"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/buttonColor"
+                tools:layout_editor_absoluteX="37dp"
+                tools:layout_editor_absoluteY="29dp"
+                tools:srcCompat="@color/material_on_background_disabled" />
+
+            <TextView
+                android:id="@+id/txtMainLegend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:text="Legenda"
+                android:textColor="@color/ColorStandard" />
+
+            <ImageButton
+                android:id="@+id/btnCutir"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="150dp"
+                android:background="#00FFFFFF"
+                app:srcCompat="@mipmap/heart"
+                tools:layout_editor_absoluteX="256dp"
+                tools:layout_editor_absoluteY="29dp" />
+
+            <ImageButton
+                android:id="@+id/btnBom"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="225dp"
+                android:layout_marginTop="-45.5dp"
+                android:background="#00FFFFFF"
+                app:srcCompat="@mipmap/feliz"
+                tools:layout_editor_absoluteX="256dp"
+                tools:layout_editor_absoluteY="29dp" />
+
+            <ImageButton
+                android:id="@+id/btnNaoCurtir"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="298dp"
+                android:layout_marginTop="-45.5dp"
+                android:background="#00FFFFFF"
+                app:srcCompat="@mipmap/angry"
+                tools:layout_editor_absoluteX="256dp"
+                tools:layout_editor_absoluteY="29dp" />
+
+            <TextView
+                android:id="@+id/numberMainCurtir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="168.5dp"
+                android:layout_marginTop="-9dp"
+                android:text="0"
+                android:textColor="@color/ColorStandard"/>
+
+            <TextView
+                android:id="@+id/numberMainBom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="245.5dp"
+                android:layout_marginTop="-17dp"
+                android:text="0"
+                android:textColor="@color/ColorStandard"/>
+
+            <TextView
+                android:id="@+id/numberMainNaoGostei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="315.5dp"
+                android:layout_marginTop="-18dp"
+                android:text="0"
+                android:textColor="@color/ColorStandard"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

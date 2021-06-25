@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="@string/perfil"
+        android:id="@+id/itemPerfil"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="@string/publicar"
+        android:id="@+id/itemPublicar"
+        android:orderInCategory="200"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="CURTIR"
+        android:id="@+id/itemCurticao"
+        android:orderInCategory="300"
+        app:showAsAction="always" />
+
+</menu>

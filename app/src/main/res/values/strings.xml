@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Curtição</string>
+
+    <string name="perfil">PERFIL</string>
+    <string name="publicar">PUBLICAR</string>
+    <string name="curticao">CURTICAO</string>
+
+</resources>

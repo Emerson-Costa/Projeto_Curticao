@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserAlter">
+
+    <EditText
+        android:id="@+id/edtAlterNome"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAlterFotoPerfil" />
+
+    <EditText
+        android:id="@+id/edtAlterIdade"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Idade"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlterNome" />
+
+    <EditText
+        android:id="@+id/edtAlterTelefone"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlterIdade" />
+
+    <EditText
+        android:id="@+id/edtAlterEmail"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlterTelefone" />
+
+    <EditText
+        android:id="@+id/edtAlterSenha"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlterEmail" />
+
+    <EditText
+        android:id="@+id/edtALterCidade"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="Cidade"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlterSenha" />
+
+    <Button
+        android:id="@+id/btnAlterarCadastro"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="15dp"
+        android:onClick="alterarCadastro"
+        android:text="Alterar Cadastro"
+        android:textSize="12sp"
+        app:backgroundTint="#DE98EC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAlterSlogan" />
+
+    <EditText
+        android:id="@+id/edtAlterSlogan"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Slogan"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtALterCidade" />
+
+
+    <ImageView
+        android:id="@+id/imgAlterFotoPerfil"
+        android:layout_width="107dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/buttonColor" />
+
+    <Button
+        android:id="@+id/btnAlterCarregarFoto"
+        android:layout_width="143dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="39dp"
+        android:onClick="carregarFoto"
+        android:text="Carregar"
+        app:backgroundTint="#DE98EC"
+        app:layout_constraintStart_toEndOf="@+id/imgAlterFotoPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/btnAlterTirarFoto" />
+
+    <Button
+        android:id="@+id/btnAlterTirarFoto"
+        android:layout_width="143dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="32dp"
+        android:onClick="tirarFoto"
+        android:text="Tirar Foto"
+        app:backgroundTint="#DE98EC"
+        app:layout_constraintStart_toEndOf="@+id/imgAlterFotoPerfil"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
