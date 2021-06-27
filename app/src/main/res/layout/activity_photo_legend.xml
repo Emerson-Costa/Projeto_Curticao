@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgPublicarFoto" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/edtTextoImagem"
         android:layout_width="352dp"
         android:layout_height="74dp"
         android:layout_marginStart="25dp"
@@ -76,5 +76,5 @@
         app:backgroundTint="@color/buttonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTextoImagem" />
 </androidx.constraintlayout.widget.ConstraintLayout>

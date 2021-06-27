@@ -22,6 +22,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -44,7 +45,7 @@ import android.view.View;
 
 public class PhotoLegend extends AppCompatActivity {
     Intent it;
-
+    private EditText edtTextoImagem;
     private ImageView ivImage;
 
     private static final int PERMISSION_REQUEST_CODE = 200;
@@ -58,6 +59,7 @@ public class PhotoLegend extends AppCompatActivity {
         setContentView(R.layout.activity_photo_legend);
 
         ivImage = findViewById(R.id.imgPublicarFoto);
+        edtTextoImagem = findViewById(R.id.edtTextoImagem);
 
     }
 

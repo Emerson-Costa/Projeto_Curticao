@@ -18,12 +18,12 @@
         android:textColor="#C25CD5"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtName"
-        app:layout_constraintStart_toStartOf="@+id/edtName"
+        app:layout_constraintBottom_toTopOf="@+id/edtNomeLogin"
+        app:layout_constraintStart_toStartOf="@+id/edtNomeLogin"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/edtPasswordLogin"
         android:layout_width="239dp"
         android:layout_height="0dp"
         android:layout_marginBottom="26dp"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtName" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNomeLogin" />
 
     <Button
         android:id="@+id/button"
@@ -46,17 +46,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordLogin" />
 
     <EditText
-        android:id="@+id/edtName"
+        android:id="@+id/edtNomeLogin"
         android:layout_width="239dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="User Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtPassword"
+        app:layout_constraintBottom_toTopOf="@+id/edtPasswordLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
