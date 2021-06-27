@@ -21,6 +21,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -33,12 +34,16 @@ import java.util.Calendar;
 public class UserRegister extends AppCompatActivity {
 
     private ImageView imgFotoPerfil;
+    private EditText edtNome, edtIdade, edtTelefone, edtEmail, edtSenha, edtCidade, edtSlogan;
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     private int GALLERY = 1, CAMERA = 2;
 
+    byte foto[];
 
     private static final String IMAGE_DIRECTORY = "/curticao";
+
+    TableCurticaoHelper userRegister = new TableCurticaoHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,14 @@ public class UserRegister extends AppCompatActivity {
         setContentView(R.layout.activity_user_register);
 
         imgFotoPerfil = findViewById(R.id.imgFotoPerfil);
+        edtNome       = findViewById(R.id.edtNome);
+        edtIdade      = findViewById(R.id.edtIdade);
+        edtTelefone   = findViewById(R.id.edtTelefone);
+        edtEmail      = findViewById(R.id.edtEmail);
+        edtSenha      = findViewById(R.id.edtSenha);
+        edtCidade     = findViewById(R.id.edtCidade);
+        edtSlogan     = findViewById(R.id.edtSlogan);
+
 
     }
 
@@ -109,6 +122,10 @@ public class UserRegister extends AppCompatActivity {
     public String saveImage(Bitmap bitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+
+        byte arrayImage[] = bytes.toByteArray();
+        foto = arrayImage;
+
         File directory = new File(
                 Environment.getExternalStorageDirectory() + IMAGE_DIRECTORY);
         // Criando o diretório caso ele não exista!
@@ -206,6 +223,31 @@ public class UserRegister extends AppCompatActivity {
     }
 
     public void registrar(View view) {
+
+        ByteArrayOutputStream imagem =  new ByteArrayOutputStream();
+
+       String nome     =  edtNome.getText().toString();
+       int    idade    =  Integer.parseInt(edtIdade.getText().toString());
+       String telefone =  edtTelefone.getText().toString();
+       String email    =  edtEmail.getText().toString();
+       String senha    =  edtSenha.getText().toString();
+       String cidade   =  edtCidade.getText().toString();
+       String slogan   =  edtSlogan.getText().toString();
+
+       User usuario    = new User();
+       Foto fotoPerfil = new Foto();
+
+       usuario.setNome(nome);
+       usuario.setIdade(idade);
+       usuario.setTelefone(telefone);
+       usuario.setEmail(email);
+       usuario.setSenha(senha);
+       usuario.setCidade(cidade);
+       usuario.setSlogan(slogan);
+       fotoPerfil.setFoto(foto);
+
+       userRegister.insertUser(usuario,fotoPerfil);
+
 
     }
 }
