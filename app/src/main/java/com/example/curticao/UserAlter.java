@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ import java.util.Calendar;
 
 public class UserAlter extends AppCompatActivity {
     Intent it;
+    private EditText edtAlterNome, edtAlterIdade, edtAlterTelefone,
+            edtAlterEmail, edtAlterSenha, edtALterCidade, edtAlterSlogan;
 
     private ImageView imgFotoPerfil;
 
@@ -48,8 +51,14 @@ public class UserAlter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_alter);
 
-        imgFotoPerfil = findViewById(R.id.imgAlterFotoPerfil);
-
+        imgFotoPerfil    = findViewById(R.id.imgAlterFotoPerfil);
+        edtAlterNome     = findViewById(R.id.edtAlterNome);
+        edtAlterIdade    = findViewById(R.id.edtAlterIdade);
+        edtAlterTelefone = findViewById(R.id.edtAlterTelefone);
+        edtAlterEmail    = findViewById(R.id.edtAlterEmail);
+        edtAlterSenha    = findViewById(R.id.edtAlterSenha);
+        edtALterCidade   = findViewById(R.id.edtALterCidade);
+        edtAlterSlogan   = findViewById(R.id.edtAlterSlogan);
 
     }
 
