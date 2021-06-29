@@ -30,6 +30,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
+
+import io.realm.Realm;
 
 public class UserRegister extends AppCompatActivity {
 
@@ -224,7 +227,7 @@ public class UserRegister extends AppCompatActivity {
 
     public void registrar(View view) {
 
-        ByteArrayOutputStream imagem =  new ByteArrayOutputStream();
+       ByteArrayOutputStream imagem =  new ByteArrayOutputStream();
 
        String nome     =  edtNome.getText().toString();
        int    idade    =  Integer.parseInt(edtIdade.getText().toString());
@@ -248,6 +251,6 @@ public class UserRegister extends AppCompatActivity {
 
        userRegister.insertUser(usuario,fotoPerfil);
 
-
+       Toast.makeText(getBaseContext(),"Dados Cadastrados com Suscesso.", Toast.LENGTH_SHORT).show();
     }
 }

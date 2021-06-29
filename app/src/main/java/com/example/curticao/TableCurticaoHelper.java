@@ -2,6 +2,7 @@ package com.example.curticao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -10,38 +11,38 @@ import androidx.annotation.Nullable;
 public class TableCurticaoHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 4;
-    private static final String DATABASE_NAME = "Curticao";
+    private static final String DATABASE_NAME = "CurticaoDatabase";
 
 
 
-    private static  String USER_QUERY      = "CREATE TABLE user(" +
-            "codUser INTEGER PRIMARY KEY NOT NULL, " +
-            "nome TEXT NOT NULL," +
-            "idade INTEGER NOT NULL," +
-            "telefone TEXT NOT NULL," +
-            "email TEXT NOT NULL," +
-            "senha TEXT NOT NULL," +
-            "cidade TEXT NOT NULL," +
-            "slogan TEXT NOT NULL)" +
-            ";";
+    private static  String USER_QUERY      = "CREATE TABLE user(               " +
+                                             "email TEXT PRIMARY KEY NOT NULL, " +
+                                             "nome TEXT NOT NULL,              " +
+                                             "idade INTEGER NOT NULL,          " +
+                                             "telefone TEXT NOT NULL,          " +
+                                             "senha TEXT NOT NULL,             " +
+                                             "cidade TEXT NOT NULL,            " +
+                                             "slogan TEXT NOT NULL             " +
+                                                                               ");";
 
-    private static  String FOTO_QUERY      = "CREATE TABLE foto(" +
-            "codFoto INTEGER PRIMARY KEY NOT NULL," +
-            "codUser INTEGER NOT NULL," +
-            "foto BLOB NOT NULL," +
-            "legenda TEXT NOT NULL," +
-            "FOREIGN KEY (codUser)" +
-            "REFERENCES user(codUser)" +
-            ");";
+    private static  String FOTO_QUERY      = "CREATE TABLE foto(               " +
+                                             "email TEXT NOT NULL,             " +
+                                             "foto BLOB NOT NULL,              " +
+                                             "legenda TEXT NOT NULL,           " +
+                                             "FOREIGN KEY (email)              " +
+                                             "REFERENCES user(email)           " +
+                                             "ON DELETE CASCADE                " +
+                                                                               ");";
 
-    private static String AVALIACAO_QUERY = "CREATE TABLE avaliacao(" +
-            "codFoto INTEGER NOT NULL," +
-            "curti INTEGER NOT NULL," +
-            "bom INTEGER NOT NULL," +
-            "naoGostei INTEGER NOT NULL," +
-            "FOREIGN KEY (codFoto)" +
-            "REFERENCES foto(codFoto)" +
-            ");";
+    private static String AVALIACAO_QUERY = "CREATE TABLE avaliacao(           " +
+                                            "email TEXT NOT NULL,              " +
+                                            "curti INTEGER NOT NULL,           " +
+                                            "bom INTEGER NOT NULL,             " +
+                                            "naoGostei INTEGER NOT NULL,       " +
+                                            "FOREIGN KEY (email)               " +
+                                            "REFERENCES foto(email)            " +
+                                            "ON DELETE CASCADE                 " +
+                                                                               ");";
 
     public TableCurticaoHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -67,48 +68,175 @@ public class TableCurticaoHelper extends SQLiteOpenHelper {
 
     }
 
-    // CRUD User
+    /*
+     *  CRUD User
+     * */
 
-    // inserir
-    public void insertUser(User a, Foto f){
+    // INSERT
+    public void insertUser(User user, Foto foto){
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
 
-        values.put("nome",a.getNome());
-        values.put("idade",a.getIdade());
-        values.put("telefone",a.getTelefone());
-        values.put("email",a.getEmail());
-        values.put("senha",a.getSenha());
-        values.put("cidade",a.getCidade());
-        values.put("slogan",a.getSlogan());
-        values.put("foto",f.getFoto());
-        values.put("legenda","foto de perfil");
+        ContentValues valuesUser = new ContentValues();
+        ContentValues valuesFoto  = new ContentValues();
 
-        db.insert("user",null, values);
+        valuesUser.put("nome",user.getNome());
+        valuesUser.put("idade",user.getIdade());
+        valuesUser.put("telefone",user.getTelefone());
+        valuesUser.put("email",user.getEmail());
+        valuesUser.put("senha",user.getSenha());
+        valuesUser.put("cidade",user.getCidade());
+        valuesUser.put("slogan",user.getSlogan());
+
+        db.insert("user",null, valuesUser);
+
+        valuesFoto.put("email",user.getEmail());
+        valuesFoto.put("foto",foto.getFoto());
+        valuesFoto.put("legenda","foto de perfil");
+
+        db.insert("foto",null, valuesFoto);
+
         db.close();
     }
 
-    // buscar
+    // GET
 
-    // atualizar
+    // Buscando email
+    public String searchEmail(String email){
 
-    // deletar
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query = "SELECT email FROM user";
+        Cursor cursor=db.rawQuery(query,null);
 
 
-    // CRUD Foto
-    public void insertFoto(Foto f){
+        if(cursor.moveToFirst()){
+            do{
+                String emailTable=cursor.getString(0);
+                if(emailTable.equals(email)){
+                    return cursor.getString(0);
+                }
+            }while (cursor.moveToNext());
+        }
+        return "Nao Encontrado";
+    }
+
+    // Buscando dados
+    public User searchDate(String email){
+
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query = "SELECT nome, idade, telefone, email, senha, cidade, slogan FROM user";
+        Cursor cursor=db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                String emailTable=cursor.getString(0);
+                if(emailTable.equals(email)){
+                    User u = new User();
+                    u.setEmail(cursor.getString(0));
+                    u.setIdade(cursor.getInt(1));
+                    u.setTelefone(cursor.getString(2));
+                    u.setEmail(cursor.getString(3));
+                    u.setSenha(cursor.getString(4));
+                    u.setCidade(cursor.getString(5));
+                    u.setSlogan(cursor.getString(6));
+                }
+            }while (cursor.moveToNext());
+        }
+        return null;
+    }
+
+    // Autenticação
+    public boolean searchEmail(User user){
+
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query = "SELECT email, senha FROM user";
+        Cursor cursor=db.rawQuery(query,null);
+
+
+        if(cursor.moveToFirst()){
+            do{
+                String emailTable    = cursor.getString(0);
+                String passwordTable = cursor.getString(1);
+                if(emailTable.equals(user.getEmail()) && passwordTable.equals(user.getSenha())){
+                    return true;
+                }
+            }while (cursor.moveToNext());
+        }
+        return false;
+    }
+
+    // UPDATE
+    public boolean alterarDadosCurso(User user, Foto foto){
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        ContentValues valuesUser = new ContentValues();
+        ContentValues valuesFoto  = new ContentValues();
+
+        valuesUser.put("nome",user.getNome());
+        valuesUser.put("idade",user.getIdade());
+        valuesUser.put("telefone",user.getTelefone());
+        valuesUser.put("email",user.getEmail());
+        valuesUser.put("senha",user.getSenha());
+        valuesUser.put("cidade",user.getCidade());
+        valuesUser.put("slogan",user.getSlogan());
+
+        db.update("user",valuesUser,"cursoID = ?",new String[]{ user.getEmail() });
+
+        valuesFoto.put("foto",foto.getFoto());
+
+        db.update("foto",valuesUser,"cursoID = ?",new String[]{ user.getEmail() });
+
+        db.close();
+
+        return true;
+    }
+
+    // DELETE
+    public boolean excluirCurso(String email){
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        db.delete("user","email=?",new String[]{ email });
+
+        return true;
+    }
+
+
+
+    /*
+    *  CRUD foto
+    * */
+    
+    // INSERT
+    public void insertFoto(Foto foto, String email){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+        values.put("email", email);
+        values.put("foto",foto.getFoto());
+        values.put("legenda",foto.getLegenda());
+
+        db.insert("foto",null, values);
+        db.close();
+    }
+
+    // GET
+
+    // UPDATE
+
+    // DELETE
+
+    /*
+     *  CRUD Avaliação
+     * */
+    public void insertAvaliacao(Foto f, String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("email", email);
         values.put("foto",f.getFoto());
         values.put("legenda",f.getLegenda());
 
         db.insert("foto",null, values);
         db.close();
     }
-
-    // CRUD Avaliacao
-
-
 
 }

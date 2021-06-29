@@ -1,8 +1,22 @@
 package com.example.curticao;
 
 public class User {
+
+
     private String nome, telefone, email, senha, cidade, slogan;
     private int idade;
+
+    public User(){ }
+
+    public User(String nome, String telefone, String email, String senha, String cidade, String slogan, int idade) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.cidade = cidade;
+        this.slogan = slogan;
+        this.idade = idade;
+    }
 
     public String getNome() {
         return nome;

@@ -63,9 +63,11 @@
         android:layout_marginStart="164dp"
         android:layout_marginLeft="164dp"
         android:layout_marginTop="68dp"
+        android:layout_marginBottom="5dp"
         android:text="Publicações"
         android:textColor="@color/ColorStandard"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -96,6 +98,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="408dp"
         android:layout_height="509dp"
         android:layout_marginStart="3dp"
@@ -118,7 +121,7 @@
                 android:background="@color/buttonColor"
                 tools:layout_editor_absoluteX="37dp"
                 tools:layout_editor_absoluteY="29dp"
-                tools:srcCompat="@color/material_on_background_disabled"/>
+                tools:srcCompat="@color/material_on_background_disabled" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -129,7 +132,7 @@
                 android:text="Legenda"
                 android:textColor="@color/ColorStandard"
                 tools:layout_editor_absoluteX="293dp"
-                tools:layout_editor_absoluteY="59dp"/>
+                tools:layout_editor_absoluteY="59dp" />
 
             <ImageView
                 android:id="@+id/cutir"
@@ -138,7 +141,7 @@
                 android:layout_marginLeft="150dp"
                 app:srcCompat="@mipmap/heart"
                 tools:layout_editor_absoluteX="240dp"
-                tools:layout_editor_absoluteY="44dp"/>
+                tools:layout_editor_absoluteY="44dp" />
 
             <ImageView
                 android:id="@+id/bom"
@@ -148,7 +151,7 @@
                 android:layout_marginTop="-20dp"
                 app:srcCompat="@mipmap/feliz"
                 tools:layout_editor_absoluteX="276dp"
-                tools:layout_editor_absoluteY="44dp"/>
+                tools:layout_editor_absoluteY="44dp" />
 
             <ImageView
                 android:id="@+id/naoGostei"
@@ -158,7 +161,7 @@
                 android:layout_marginTop="-20dp"
                 app:srcCompat="@mipmap/angry"
                 tools:layout_editor_absoluteX="316dp"
-                tools:layout_editor_absoluteY="47dp"/>
+                tools:layout_editor_absoluteY="47dp" />
 
             <TextView
                 android:id="@+id/numberCurtir"
@@ -169,7 +172,7 @@
                 android:text="0"
                 android:textColor="@color/ColorStandard"
                 tools:layout_editor_absoluteX="293dp"
-                tools:layout_editor_absoluteY="59dp"/>
+                tools:layout_editor_absoluteY="59dp" />
 
             <TextView
                 android:id="@+id/numberBom"
@@ -180,7 +183,7 @@
                 android:text="0"
                 android:textColor="@color/ColorStandard"
                 tools:layout_editor_absoluteX="293dp"
-                tools:layout_editor_absoluteY="59dp"/>
+                tools:layout_editor_absoluteY="59dp" />
 
             <TextView
                 android:id="@+id/numberNaoGostei"
@@ -191,7 +194,7 @@
                 android:text="0"
                 android:textColor="@color/ColorStandard"
                 tools:layout_editor_absoluteX="293dp"
-                tools:layout_editor_absoluteY="59dp"/>
+                tools:layout_editor_absoluteY="59dp" />
 
             <Button
                 android:id="@+id/btnExcluirFoto"
@@ -201,7 +204,7 @@
                 android:layout_marginTop="-47.5dp"
                 android:onClick="excluirFoto"
                 android:text="Excluir"
-                android:textSize="8sp"/>
+                android:textSize="8sp" />
 
         </LinearLayout>
     </ScrollView>
