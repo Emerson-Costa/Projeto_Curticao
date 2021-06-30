@@ -53,6 +53,8 @@ public class PhotoLegend extends AppCompatActivity {
 
     private static final String IMAGE_DIRECTORY = "/curticao";
 
+    TableCurticaoHelper userPhotoLegend = new TableCurticaoHelper(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -256,6 +258,8 @@ public class PhotoLegend extends AppCompatActivity {
     }
 
     public void publicar(View view) {
+
+
         it=new Intent(PhotoLegend.this,MainPage.class);
         startActivity(it);
     }

@@ -252,5 +252,8 @@ public class UserRegister extends AppCompatActivity {
        userRegister.insertUser(usuario,fotoPerfil);
 
        Toast.makeText(getBaseContext(),"Dados Cadastrados com Suscesso.", Toast.LENGTH_SHORT).show();
+
+       Intent it=new Intent(UserRegister.this,UserLogin.class);
+       startActivity(it);
     }
 }

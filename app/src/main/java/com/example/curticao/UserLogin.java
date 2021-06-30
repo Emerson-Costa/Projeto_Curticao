@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class UserLogin extends AppCompatActivity {
+
  private EditText edtNomeLogin, edtPasswordLogin;
+
+    TableCurticaoHelper userLogin = new TableCurticaoHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,26 @@ public class UserLogin extends AppCompatActivity {
     }
 
     public void entrar(View view) {
-        Intent it=new Intent(UserLogin.this,UserProfile.class);
-        startActivity(it);
+
+        String email = edtNomeLogin.getText().toString();
+        String password = edtPasswordLogin.getText().toString();
+
+        User user = new User();
+
+        user.setEmail(email);
+        user.setSenha(password);
+
+        if(userLogin.searchUser(user)){
+            Intent it=new Intent(UserLogin.this,UserProfile.class);
+            Bundle bundle=new Bundle();
+            bundle.putString("ch_email",email);
+            it.putExtras(bundle);
+            startActivity(it);
+        }else{
+            Toast.makeText(getBaseContext(),"Dados Incorretos.", Toast.LENGTH_SHORT).show();
+        }
+
+
+
     }
 }

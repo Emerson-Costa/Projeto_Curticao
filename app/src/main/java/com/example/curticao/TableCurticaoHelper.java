@@ -101,7 +101,7 @@ public class TableCurticaoHelper extends SQLiteOpenHelper {
     // GET
 
     // Buscando email
-    public String searchEmail(String email){
+    public String searchUser(String email){
 
         SQLiteDatabase db=this.getReadableDatabase();
         String query = "SELECT email FROM user";
@@ -112,40 +112,67 @@ public class TableCurticaoHelper extends SQLiteOpenHelper {
             do{
                 String emailTable=cursor.getString(0);
                 if(emailTable.equals(email)){
-                    return cursor.getString(0);
+                    return cursor.getString(       0);
                 }
             }while (cursor.moveToNext());
         }
         return "Nao Encontrado";
     }
 
-    // Buscando dados
-    public User searchDate(String email){
+    // Buscando dados User
+    public User searchDateUser(String email){
 
         SQLiteDatabase db=this.getReadableDatabase();
+
         String query = "SELECT nome, idade, telefone, email, senha, cidade, slogan FROM user";
         Cursor cursor=db.rawQuery(query,null);
 
+        User u = new User();
+
         if(cursor.moveToFirst()){
             do{
-                String emailTable=cursor.getString(0);
+                String emailTable = cursor.getString(3);
                 if(emailTable.equals(email)){
-                    User u = new User();
-                    u.setEmail(cursor.getString(0));
-                    u.setIdade(cursor.getInt(1));
+
+                    u.setNome(    cursor.getString(0));
+                    u.setIdade(      cursor.getInt(1));
                     u.setTelefone(cursor.getString(2));
-                    u.setEmail(cursor.getString(3));
-                    u.setSenha(cursor.getString(4));
-                    u.setCidade(cursor.getString(5));
-                    u.setSlogan(cursor.getString(6));
+                    u.setEmail(   cursor.getString(3));
+                    u.setSenha(   cursor.getString(4));
+                    u.setCidade(  cursor.getString(5));
+                    u.setSlogan(  cursor.getString(6));
                 }
             }while (cursor.moveToNext());
+            return u;
         }
         return null;
     }
 
+    public Foto searchDateFoto(String email){
+
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        String query = "SELECT foto FROM foto";
+        Cursor cursor=db.rawQuery(query,null);
+
+        Foto f = new Foto();
+
+        if(cursor.moveToFirst()){
+            do{
+                String emailTable = cursor.getString(3);
+                if(emailTable.equals(email)){
+                    f.setFoto(cursor.getBlob(0));
+                }
+            }while (cursor.moveToNext());
+            return f;
+        }
+        return null;
+    }
+
+
+
     // Autenticação
-    public boolean searchEmail(User user){
+    public boolean searchUser(User user){
 
         SQLiteDatabase db=this.getReadableDatabase();
         String query = "SELECT email, senha FROM user";
@@ -191,7 +218,7 @@ public class TableCurticaoHelper extends SQLiteOpenHelper {
     }
 
     // DELETE
-    public boolean excluirCurso(String email){
+    public boolean deleteUser(String email){
         SQLiteDatabase db=this.getWritableDatabase();
 
         db.delete("user","email=?",new String[]{ email });
