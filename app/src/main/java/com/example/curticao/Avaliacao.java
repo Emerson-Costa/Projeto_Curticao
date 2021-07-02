@@ -2,6 +2,7 @@ package com.example.curticao;
 
 public class Avaliacao {
 
+    private int codFoto;
     String email;
     private int curti;
     private int bom;
@@ -15,6 +16,10 @@ public class Avaliacao {
         this.bom = bom;
         this.naoGostei = naoGostei;
     }
+
+    public int getCodFoto() { return codFoto; }
+
+    public void setCodFoto(int codFoto) { this.codFoto = codFoto; }
 
     public String getEmail() { return email; }
 

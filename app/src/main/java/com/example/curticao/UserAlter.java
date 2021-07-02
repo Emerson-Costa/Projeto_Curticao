@@ -249,7 +249,7 @@ public class UserAlter extends AppCompatActivity {
                 break;
 
             case R.id.itemCurticao:
-                it=new Intent(UserAlter.this,MainPage.class);
+                it=new Intent(UserAlter.this,CurticaoPage.class);
                 startActivity(it);
                 break;
         }

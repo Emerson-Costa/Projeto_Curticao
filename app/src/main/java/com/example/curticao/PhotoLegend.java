@@ -44,23 +44,57 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class PhotoLegend extends AppCompatActivity {
+
     Intent it;
     private EditText edtTextoImagem;
-    private ImageView ivImage;
+    private ImageView imgPublicarFoto;
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     private int GALLERY = 1, CAMERA = 2;
 
     private static final String IMAGE_DIRECTORY = "/curticao";
 
+    byte foto[];
+
+    TableCurticaoHelper userPhotoLegend = new TableCurticaoHelper(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_legend);
 
-        ivImage = findViewById(R.id.imgPublicarFoto);
-        edtTextoImagem = findViewById(R.id.edtTextoImagem);
+        imgPublicarFoto = findViewById(R.id.imgPublicarFoto);
+        edtTextoImagem  = findViewById(R.id.edtTextoImagem);
 
+    }
+
+    public void publicar(View view) {
+
+        String legenda = edtTextoImagem.getText().toString();
+
+        // Pega o email informado pelo usuário
+        Intent it = getIntent();
+        Bundle bundle = it.getExtras();
+
+        String email="";
+        if(bundle != null){
+            email = bundle.getString("ch_email");
+        }
+
+        User u = userPhotoLegend.searchDateUser(email);
+        Foto f = new Foto();
+
+        f.setFoto(foto);
+        f.setNome(u.getNome());
+        f.setCidade(u.getCidade());
+        f.setSlogan(u.getSlogan());
+        f.setLegenda(edtTextoImagem.getText().toString());
+        f.setEmail(email);
+
+        userPhotoLegend.insertFoto(f);
+
+        it=new Intent(PhotoLegend.this,CurticaoPage.class);
+        startActivity(it);
     }
 
     /*
@@ -96,7 +130,7 @@ public class PhotoLegend extends AppCompatActivity {
         }
         if (requestCode == CAMERA) {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            ivImage.setImageBitmap(resizeImage(bitmap, 600, 700));
+            imgPublicarFoto.setImageBitmap(resizeImage(bitmap, 600, 700));
             saveImage(bitmap);
             Toast.makeText(PhotoLegend.this, "Image Saved!", Toast.LENGTH_SHORT).show();
         }else if (requestCode == GALLERY) {
@@ -111,7 +145,7 @@ public class PhotoLegend extends AppCompatActivity {
                     Toast.makeText(PhotoLegend.this, "Image Saved!",
                             Toast.LENGTH_SHORT).show();
                     // Print on screen
-                    ivImage.setImageBitmap(resizeImage(bitmap, 600, 700));
+                    imgPublicarFoto.setImageBitmap(resizeImage(bitmap, 600, 700));
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(PhotoLegend.this, "Failed!",
@@ -122,8 +156,11 @@ public class PhotoLegend extends AppCompatActivity {
     }
 
     public String saveImage(Bitmap bitmap) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream(bitmap.getWidth() * bitmap.getHeight());
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+
+        foto = bytes.toByteArray();
+
         File directory = new File(
                 Environment.getExternalStorageDirectory() + IMAGE_DIRECTORY);
         // Criando o diretório caso ele não exista!
@@ -247,17 +284,12 @@ public class PhotoLegend extends AppCompatActivity {
                 break;
 
             case R.id.itemCurticao:
-                it=new Intent(PhotoLegend.this,MainPage.class);
+                it=new Intent(PhotoLegend.this,CurticaoPage.class);
                 startActivity(it);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void publicar(View view) {
-        it=new Intent(PhotoLegend.this,MainPage.class);
-        startActivity(it);
     }
 
 }

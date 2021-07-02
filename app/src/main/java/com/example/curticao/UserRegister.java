@@ -123,11 +123,10 @@ public class UserRegister extends AppCompatActivity {
     }
 
     public String saveImage(Bitmap bitmap) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream(bitmap.getWidth() * bitmap.getHeight());
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 
-        byte arrayImage[] = bytes.toByteArray();
-        foto = arrayImage;
+        foto = bytes.toByteArray();
 
         File directory = new File(
                 Environment.getExternalStorageDirectory() + IMAGE_DIRECTORY);
@@ -238,7 +237,6 @@ public class UserRegister extends AppCompatActivity {
        String slogan   =  edtSlogan.getText().toString();
 
        User usuario    = new User();
-       Foto fotoPerfil = new Foto();
 
        usuario.setNome(nome);
        usuario.setIdade(idade);
@@ -247,10 +245,13 @@ public class UserRegister extends AppCompatActivity {
        usuario.setSenha(senha);
        usuario.setCidade(cidade);
        usuario.setSlogan(slogan);
-       fotoPerfil.setFoto(foto);
+       usuario.setFoto(foto);
 
-       userRegister.insertUser(usuario,fotoPerfil);
+       userRegister.insertUser(usuario);
 
        Toast.makeText(getBaseContext(),"Dados Cadastrados com Suscesso.", Toast.LENGTH_SHORT).show();
+
+       Intent it=new Intent(UserRegister.this,UserLogin.class);
+       startActivity(it);
     }
 }

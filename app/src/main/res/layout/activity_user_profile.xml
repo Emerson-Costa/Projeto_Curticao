@@ -7,31 +7,42 @@
     tools:context=".UserProfile">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="80dp"
-        android:layout_height="100dp"
+        android:id="@+id/imgPhotoProfile"
+        android:layout_width="107dp"
+        android:layout_height="134dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="28dp"
-        android:background="@color/buttonColor"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@color/material_on_background_disabled" />
+        app:srcCompat="@color/buttonColor"/>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtSloganProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
+        android:text="Slogan:"
+        android:textColor="@color/ColorStandard"
+        app:layout_constraintStart_toEndOf="@+id/imgPhotoProfile"
+        app:layout_constraintTop_toBottomOf="@+id/txtCidadeProfile" />
+
+    <TextView
+        android:id="@+id/txtnomeProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:text="Nome:"
         android:textColor="@color/ColorStandard"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgPhotoProfile"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/txtCidadeProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -40,21 +51,9 @@
         android:layout_marginBottom="22dp"
         android:text="Cidade:"
         android:textColor="@color/ColorStandard"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Slogan:"
-        android:textColor="@color/ColorStandard"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintBottom_toTopOf="@+id/txtSloganProfile"
+        app:layout_constraintStart_toEndOf="@+id/imgPhotoProfile"
+        app:layout_constraintTop_toBottomOf="@+id/txtnomeProfile" />
 
     <TextView
         android:id="@+id/textView9"
@@ -69,15 +68,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPhotoProfile" />
 
     <Button
         android:id="@+id/btnAlterDate"
         android:layout_width="134dp"
         android:layout_height="33dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="160dp"
         android:onClick="alterarDados"
         android:text="Alterar Dados"
         android:textSize="10sp"
@@ -88,9 +87,9 @@
         android:id="@+id/btnSair"
         android:layout_width="134dp"
         android:layout_height="33dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="160dp"
         android:onClick="sair"
         android:text="Sair"
         android:textSize="10sp"
@@ -207,5 +206,6 @@
                 android:textSize="8sp" />
 
         </LinearLayout>
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

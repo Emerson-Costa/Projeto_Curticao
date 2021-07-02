@@ -3,12 +3,14 @@ package com.example.curticao;
 public class User {
 
 
+    private byte[]foto;
     private String nome, telefone, email, senha, cidade, slogan;
     private int idade;
 
     public User(){ }
 
-    public User(String nome, String telefone, String email, String senha, String cidade, String slogan, int idade) {
+    public User(byte[] foto, String nome, String telefone, String email, String senha, String cidade, String slogan, int idade) {
+        this.foto = foto;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -17,6 +19,10 @@ public class User {
         this.slogan = slogan;
         this.idade = idade;
     }
+
+    public byte[] getFoto() { return foto; }
+
+    public void setFoto(byte[] foto) { this.foto = foto; }
 
     public String getNome() {
         return nome;
