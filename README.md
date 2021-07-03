@@ -21,13 +21,15 @@ O usuário é direcionado para tela de perfil onde pode fazer a postagem de foto
 
 Os outros usuários cadastrados no app podem visualizar as fotos postadas de todos que postaram, podendo reagir curtindo uma vez se gostou ou não.  
 
-#### Requisitos funcionais:
-RF01: criar cadastro usuário
-RF02: autenticação do usuário
-RF03 : Subir Imagem
-RF04: alterar imagem
-RF05: Remover imagem
-RF06: Curtir postagem
-RF07: Comentar na imagem antes postar ela
-RF08: Atualizar dados do usuário
-
+### Requisitos funcionais:
+#### RF01: criar cadastro usuário
+#### RF02: autenticação do usuário
+#### RF03 : Subir Imagem
+#### RF04: alterar imagem
+#### RF05: Remover imagem
+#### RF06: Curtir postagem
+#### RF07: Comentar na imagem antes postar ela
+#### RF08: Atualizar dados do usuário
+### Desenvolvedores:
+#### Emerson Jose da Silva Costa
+#### Karina Fedrizzi
