@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import androidx.annotation.Nullable;
 
@@ -177,14 +179,13 @@ public class TableCurticaoHelper extends SQLiteOpenHelper {
 
 
     // Update User
-    public boolean alterarDadosCurso(User user){
+    public void alterarDadosUser(User user){
 
         SQLiteDatabase db=this.getWritableDatabase();
 
         ContentValues values  = new ContentValues();
 
-
-        values.put("foto",user.getFoto()); // ERRO! Aqui deverá ser convertido a byte array...
+        values.put("foto",user.getFoto());
         values.put("nome",user.getNome());
         values.put("idade",user.getIdade());
         values.put("telefone",user.getTelefone());
@@ -193,11 +194,9 @@ public class TableCurticaoHelper extends SQLiteOpenHelper {
         values.put("cidade",user.getCidade());
         values.put("slogan",user.getSlogan());
 
-        db.update("user",values,"cursoID = ?",new String[]{ user.getEmail() });
+        db.update("user",values,"email=?",new String[]{ user.getEmail() });
 
         db.close();
-
-        return true;
     }
 
     public boolean deleteUser(String email){

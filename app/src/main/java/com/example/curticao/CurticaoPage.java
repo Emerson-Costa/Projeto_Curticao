@@ -17,10 +17,20 @@ public class CurticaoPage extends AppCompatActivity {
     Intent it;
     TableCurticaoHelper userFotos = new TableCurticaoHelper(this);
 
+    String email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_curticao_page);
+
+        // Pega o email informado pelo usuário
+        Intent it = getIntent();
+        Bundle bundle = it.getExtras();
+
+        if(bundle != null){
+            email = bundle.getString("ch_email");
+        }
 
         ListView lvCurticao = findViewById(R.id.lvCurticao);
         ArrayAdapter adapter = new CurticaoArrayAdapter(this, adicionar_fotos(), adicionar_Avaliacoes());
@@ -54,20 +64,29 @@ public class CurticaoPage extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
+        Bundle bundle;
         switch (item.getItemId()){
             case R.id.itemPerfil:
                 it=new Intent(CurticaoPage.this,UserProfile.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
 
             case R.id.itemPublicar:
                 it=new Intent(CurticaoPage.this,PhotoLegend.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
 
             case R.id.itemCurticao:
                 it=new Intent(CurticaoPage.this,CurticaoPage.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
         }

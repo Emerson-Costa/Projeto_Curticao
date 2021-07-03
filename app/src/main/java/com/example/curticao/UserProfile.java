@@ -69,6 +69,9 @@ public class UserProfile extends AppCompatActivity {
     public void alterarDados(View view) {
 
         it= new Intent(UserProfile.this,UserAlter.class);
+        Bundle bundle=new Bundle();
+        bundle.putString("ch_email",email);
+        it.putExtras(bundle);
         startActivity(it);
     }
 
@@ -96,26 +99,30 @@ public class UserProfile extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
+        Bundle bundle;
         switch (item.getItemId()){
             case R.id.itemPerfil:
                 it=new Intent(UserProfile.this,UserProfile.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
 
             case R.id.itemPublicar:
 
                 it=new Intent(UserProfile.this,PhotoLegend.class);
-
-                Bundle bundle=new Bundle();
+                bundle=new Bundle();
                 bundle.putString("ch_email",email);
                 it.putExtras(bundle);
-
                 startActivity(it);
                 break;
 
             case R.id.itemCurticao:
                 it=new Intent(UserProfile.this,CurticaoPage.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
         }

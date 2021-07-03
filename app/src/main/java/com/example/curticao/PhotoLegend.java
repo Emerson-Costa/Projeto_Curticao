@@ -49,12 +49,16 @@ public class PhotoLegend extends AppCompatActivity {
     private EditText edtTextoImagem;
     private ImageView imgPublicarFoto;
 
+    String email;
+
     private static final int PERMISSION_REQUEST_CODE = 200;
     private int GALLERY = 1, CAMERA = 2;
 
     private static final String IMAGE_DIRECTORY = "/curticao";
 
+
     byte foto[];
+
 
     TableCurticaoHelper userPhotoLegend = new TableCurticaoHelper(this);
 
@@ -65,6 +69,14 @@ public class PhotoLegend extends AppCompatActivity {
 
         imgPublicarFoto = findViewById(R.id.imgPublicarFoto);
         edtTextoImagem  = findViewById(R.id.edtTextoImagem);
+
+        // Pega o email informado pelo usuário
+        Intent it = getIntent();
+        Bundle bundle = it.getExtras();
+
+        if(bundle != null){
+            email = bundle.getString("ch_email");
+        }
 
     }
 
@@ -94,6 +106,9 @@ public class PhotoLegend extends AppCompatActivity {
         userPhotoLegend.insertFoto(f);
 
         it=new Intent(PhotoLegend.this,CurticaoPage.class);
+        bundle=new Bundle();
+        bundle.putString("ch_email",email);
+        it.putExtras(bundle);
         startActivity(it);
     }
 
@@ -139,6 +154,7 @@ public class PhotoLegend extends AppCompatActivity {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),
                             contentURI);
+
                     // Salvando a imagem
                     String path = saveImage(bitmap);
                     Log.i("TAG","Path: " + path);
@@ -271,20 +287,29 @@ public class PhotoLegend extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
+        Bundle bundle;
         switch (item.getItemId()){
             case R.id.itemPerfil:
                 it=new Intent(PhotoLegend.this,UserProfile.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
 
             case R.id.itemPublicar:
                 it=new Intent(PhotoLegend.this,PhotoLegend.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
 
             case R.id.itemCurticao:
                 it=new Intent(PhotoLegend.this,CurticaoPage.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
         }

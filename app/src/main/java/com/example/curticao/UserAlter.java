@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -44,6 +45,12 @@ public class UserAlter extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 200;
     private int GALLERY = 1, CAMERA = 2;
 
+    private String email;
+
+    private  User u;
+
+    TableCurticaoHelper userAlter = new TableCurticaoHelper(this);
+
     private static final String IMAGE_DIRECTORY = "/curticao";
 
     @Override
@@ -60,6 +67,27 @@ public class UserAlter extends AppCompatActivity {
         edtALterCidade   = findViewById(R.id.edtALterCidade);
         edtAlterSlogan   = findViewById(R.id.edtAlterSlogan);
 
+        // Pega o email informado pelo usuário
+        Intent it = getIntent();
+        Bundle bundle = it.getExtras();
+
+        if(bundle != null){
+            email = bundle.getString("ch_email");
+        }
+
+        u = userAlter.searchDateUser(email);
+
+        Bitmap bmp = BitmapFactory.decodeByteArray(u.getFoto(),0,u.getFoto().length);
+        imgFotoPerfil.setImageBitmap(bmp);
+
+        edtAlterNome.setText    (u.getNome()    );
+        edtAlterIdade.setText   (u.getIdade()+"");
+        edtAlterTelefone.setText(u.getTelefone());
+        edtAlterEmail.setText   (u.getEmail()   );
+        edtAlterSenha.setText   (u.getSenha()   );
+        edtALterCidade.setText  (u.getCidade()  );
+        edtAlterSlogan.setText  (u.getSlogan()  );
+
     }
 
     /*
@@ -70,7 +98,6 @@ public class UserAlter extends AppCompatActivity {
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, CAMERA);
     }
-
 
 
     public void carregarFoto(View view) {
@@ -240,25 +267,55 @@ public class UserAlter extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.itemPerfil:
                 it=new Intent(UserAlter.this,UserProfile.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
 
             case R.id.itemPublicar:
                 it=new Intent(UserAlter.this,PhotoLegend.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
 
             case R.id.itemCurticao:
                 it=new Intent(UserAlter.this,CurticaoPage.class);
+                bundle=new Bundle();
+                bundle.putString("ch_email",email);
+                it.putExtras(bundle);
                 startActivity(it);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     public void alterarCadastro(View view) {
         it=new Intent(UserAlter.this,UserProfile.class);
+
+        String nome      = edtAlterNome.getText().toString();
+        int idade        = Integer.parseInt(edtALterCidade.getText().toString());
+        String telefone  = edtAlterTelefone.getText().toString();
+        String email     = edtAlterEmail.getText().toString();
+        String senha     = edtAlterSenha.getText().toString();
+        String cidade    = edtALterCidade.getText().toString();
+        String slogan    = edtAlterSlogan.getText().toString();
+
+        u.setNome(nome);
+        u.setIdade(idade);
+        u.setTelefone(telefone);
+        u.setEmail(email);
+        u.setSenha(senha);
+        u.setCidade(cidade);
+        u.setSlogan(slogan);
+
+        userAlter.alterarDadosUser(u);
+
+        Bundle bundle=new Bundle();
+        bundle.putString("ch_email",email);
+        it.putExtras(bundle);
         startActivity(it);
     }
 }

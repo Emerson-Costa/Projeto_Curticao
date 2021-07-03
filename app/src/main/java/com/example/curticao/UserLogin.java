@@ -38,7 +38,9 @@ public class UserLogin extends AppCompatActivity {
         user.setEmail(email);
         user.setSenha(password);
 
+
         // (Restrição)Verificar se o mesmo email esta cadastrado no banco
+
 
         if(userLogin.searchUser(user)){
             Intent it=new Intent(UserLogin.this,UserProfile.class);
