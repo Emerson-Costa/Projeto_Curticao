@@ -3,7 +3,7 @@
          											
 ## Visão geral:
 
-### O app Curtição vai buscar diversão e facilidade para os Usuários, foca num app onde os usuários e profissionais de fotografias postam suas fotos, e os outros usuários reagem curtindo se gostou ou não gostou .
+### O app Curtição é um app tipo rede social que vai buscar diversão e facilidade para os Usuários, foca num app onde os usuários e profissionais de fotografias postam suas fotos, e os outros usuários reagem curtindo se gostou ou não gostou .
 #### Vai ser para todos os grupos. Tendo restrições de fotos muito explícitas como nudez.
 
  ## Funcionalidades:
