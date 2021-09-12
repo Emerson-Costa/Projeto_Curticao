@@ -31,5 +31,8 @@ Os outros usuários cadastrados no app podem visualizar as fotos postadas de tod
 #### RF07: Comentar na imagem antes postar ela
 #### RF08: Atualizar dados do usuário
 ### Desenvolvedores:
-#### Emerson Jose da Silva Costa
-#### Karina Fedrizzi
+ 
+ * Emerson Jose da Silva Costa
+   * Likendim: https://www.linkedin.com/in/emerson-costa-199995169/
+ * Karina Fedrizzi
+   * Likendim: https://www.linkedin.com/in/karina-fedrizzi-a379aa166/
