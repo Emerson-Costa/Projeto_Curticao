@@ -33,6 +33,6 @@ Os outros usuários cadastrados no app podem visualizar as fotos postadas de tod
 ### Desenvolvedores:
  
  * Emerson Jose da Silva Costa
-   * Likendim: https://www.linkedin.com/in/emerson-costa-199995169/
+   * Linkedin: https://www.linkedin.com/in/emerson-costa-199995169/
  * Karina Fedrizzi
-   * Likendim: https://www.linkedin.com/in/karina-fedrizzi-a379aa166/
+   * Linkedin: https://www.linkedin.com/in/karina-fedrizzi-a379aa166/
